@@ -30,6 +30,7 @@ if __name__ == '__main__':
     json.dump(timeline, fp_json, indent=2, ensure_ascii=False,
               encoding='utf-8')
     fp_json.close()
+    os.system('gzip %s' % fname_json)
 
     # write out the same data, but only needed values as delimited text
     fp_txt = codecs.open(fname_txt, 'wb', encoding='utf-8')
@@ -45,3 +46,4 @@ if __name__ == '__main__':
                status['text']]
         fp_txt.write(u'\t'.join(row) + '\n')
     fp_txt.close()
+    os.system('gzip %s' % fname_txt)
