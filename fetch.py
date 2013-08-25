@@ -15,7 +15,7 @@ if __name__ == '__main__':
                config.REDIRECT_URI, token=config.TOKEN)
     timeline = c.get('statuses/public_timeline', count=200)
     gmt = time.gmtime()
-    path = '%s/%s' % (config.DATA_DIR, time.strftime('%Y/%m/%d', gmt))
+    path = '%s/%s' % (config.DATA_DIR, time.strftime('%Y/%m/%d/%H', gmt))
     # create that directory to hold these files if it doesn't yet exist
     try:
         os.stat(path)
